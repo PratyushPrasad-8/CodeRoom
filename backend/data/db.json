@@ -1,0 +1,15 @@
+{
+  "rooms": [
+    {
+      "id": "MRWPEL",
+      "name": "Show your skills",
+      "problemId": "sum-two-numbers",
+      "teacherName": "Pratyush Prasad",
+      "status": "live",
+      "students": [],
+      "createdAt": "2026-06-16T21:04:49.126Z"
+    }
+  ],
+  "submissions": [],
+  "codeSnapshots": {}
+}
