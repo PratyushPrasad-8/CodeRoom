@@ -54,7 +54,7 @@ const corsOptions = {
     }
     return callback(new Error(`Origin ${origin} is not allowed by CORS`));
   },
-  credentials: true 
+  credentials: true
 };
 
 // 3. APPLY EXPRESS CORS MIDDLEWARE IMMEDIATELY
@@ -63,11 +63,67 @@ app.use(express.json({ limit: "1mb" }));
 
 // 4. INSTANTIATE SOCKET SERVER USING THE ALREADY CLEANED ARRAYS
 const io = new Server(httpServer, {
-  cors: { 
-    origin: [...allowedOrigins], 
+  cors: {
+    origin: [...allowedOrigins],
     methods: ["GET", "POST"],
     credentials: true
   }
+});
+
+// Socket authentication and event handlers
+io.use((socket, next) => {
+  try {
+    const token = socket.handshake.auth?.token || socket.handshake.headers?.authorization?.replace(/^Bearer\s+/i, "");
+    if (token) {
+      const session = verifySession(token);
+      socket.user = session ? getUserById(session.sub) : null;
+    } else {
+      socket.user = null;
+    }
+  } catch (err) {
+    socket.user = null;
+  }
+  next();
+});
+
+io.on("connection", (socket) => {
+  console.log("socket connected", { id: socket.id, user: socket.user?.id || null });
+  // Join a socket to a room so the server can emit room-scoped events
+  socket.on("room:join", ({ roomId } = {}) => {
+    if (!roomId) return;
+    const rid = String(roomId).toUpperCase();
+    try { socket.join(rid); console.log("socket joined room", { socket: socket.id, room: rid, user: socket.user?.id || null }); } catch (err) { console.error("room join error", err); }
+  });
+
+  // Receive periodic code snapshots from candidates and broadcast to the room
+  socket.on("code:update", (payload = {}) => {
+    const { roomId, language, code } = payload;
+    if (!roomId) return;
+    const studentName = socket.user?.name || payload.studentName || null;
+    try {
+      const rid = String(roomId).toUpperCase();
+      saveCodeSnapshot({ roomId: rid, studentName, language, code });
+      console.log("code:update from", { room: rid, studentName, socket: socket.id });
+    } catch (err) {
+      // ignore save failures for live updates
+    }
+    io.to(String(roomId).toUpperCase()).emit("code:updated", { roomId: String(roomId).toUpperCase(), studentName, language, code });
+  });
+
+  // Proctoring / integrity alerts from clients
+  socket.on("proctor:alert", (payload = {}) => {
+    const { roomId, type, message } = payload;
+    if (!roomId) return;
+    const studentName = socket.user?.name || payload.studentName || null;
+    try {
+      const rid = String(roomId).toUpperCase();
+      const alert = addProctorAlert({ roomId: rid, studentName, type, message });
+      console.log("proctor alert saved", { room: rid, studentName, type, message, alertId: alert.id });
+      io.to(rid).emit("proctor:alert", alert);
+    } catch (err) {
+      console.error("proctor alert error", err);
+    }
+  });
 });
 
 function readToken(req) {

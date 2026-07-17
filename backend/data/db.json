@@ -19,9 +19,53 @@
       "bio": "",
       "verified": false,
       "createdAt": "2026-07-17T07:08:31.281Z"
+    },
+    {
+      "id": "1so53775tlk53b9o",
+      "name": "Gaurav Hela",
+      "email": "helagaurav884@gmail.com",
+      "passwordHash": "4e74feeb82ee7d8dc6d47db7b9eb1e12:94e46a8e46f66df51a46b498e40c5d2ff9fe5099354d998f88a8f45d10159a00d0de366bc2f6c721b2aff40666f0947e4cd22539df155d8c764a0632e66e4efe",
+      "bio": "",
+      "verified": false,
+      "createdAt": "2026-07-17T20:13:08.685Z"
+    },
+    {
+      "id": "gb634owozfxdlh9t",
+      "name": "aaaaaa",
+      "email": "gauravrajahela884@gmail.com",
+      "passwordHash": "8fc03c087e6265f83087de51caeb2e01:8b920d18c9bc4ce239c2f944a58e91135493c9444fb19da7d43f3de9252f8e2bf4aaab7a9e833b2e5c6f442c32bafe2d99d8756a01f46a03563acccdfebb8b93",
+      "bio": "",
+      "verified": false,
+      "createdAt": "2026-07-17T20:19:17.569Z"
     }
   ],
   "rooms": [
+    {
+      "id": "MVE3C8",
+      "name": "Show your skills",
+      "problemId": "sum-two-numbers",
+      "problemIds": [
+        "sum-two-numbers",
+        "maximum-array"
+      ],
+      "teacherName": "aaaaaa",
+      "teacherId": "gb634owozfxdlh9t",
+      "status": "live",
+      "durationMinutes": 120,
+      "expiresAt": "2026-07-17T22:19:30.398Z",
+      "students": [
+        {
+          "id": "FB4RT4",
+          "userId": "1so53775tlk53b9o",
+          "name": "Gaurav Hela",
+          "status": "joined",
+          "passed": 0,
+          "total": 4,
+          "lastSeen": "2026-07-17T20:34:01.962Z"
+        }
+      ],
+      "createdAt": "2026-07-17T20:19:30.397Z"
+    },
     {
       "id": "6EDQAY",
       "name": "Show your skills",
@@ -44,6 +88,15 @@
           "passed": 0,
           "total": 4,
           "lastSeen": "2026-07-17T19:48:34.076Z"
+        },
+        {
+          "id": "PGATMH",
+          "userId": "1so53775tlk53b9o",
+          "name": "Gaurav Hela",
+          "status": "joined",
+          "passed": 0,
+          "total": 4,
+          "lastSeen": "2026-07-17T20:18:30.084Z"
         }
       ],
       "createdAt": "2026-07-17T19:35:52.822Z"
@@ -193,9 +246,55 @@
       "language": "python",
       "code": "# Read input and print output\n",
       "updatedAt": "2026-07-17T08:06:42.305Z"
+    },
+    "6EDQAY:Gaurav Hela": {
+      "roomId": "6EDQAY",
+      "studentName": "Gaurav Hela",
+      "language": "python",
+      "code": "# Read from standard input and print the answer\n",
+      "updatedAt": "2026-07-17T20:19:38.709Z"
+    },
+    "MVE3C8:Gaurav Hela": {
+      "roomId": "MVE3C8",
+      "studentName": "Gaurav Hela",
+      "language": "python",
+      "code": "# Read input and print output\naaaaaaaaaaaaaaaaa",
+      "updatedAt": "2026-07-17T20:35:14.844Z"
     }
   },
   "proctorAlerts": [
+    {
+      "id": "63FXRR",
+      "roomId": "MVE3C8",
+      "studentName": "Gaurav Hela",
+      "type": "tab-hidden",
+      "message": "Candidate moved away from the competition tab.",
+      "createdAt": "2026-07-17T20:34:52.441Z"
+    },
+    {
+      "id": "XF4U4K",
+      "roomId": "MVE3C8",
+      "studentName": "Gaurav Hela",
+      "type": "window-blur",
+      "message": "Candidate moved focus away from the competition window.",
+      "createdAt": "2026-07-17T20:34:52.437Z"
+    },
+    {
+      "id": "8P6R4D",
+      "roomId": "MVE3C8",
+      "studentName": "Gaurav Hela",
+      "type": "tab-hidden",
+      "message": "Candidate moved away from the competition tab.",
+      "createdAt": "2026-07-17T20:34:48.897Z"
+    },
+    {
+      "id": "MDUDZF",
+      "roomId": "MVE3C8",
+      "studentName": "Gaurav Hela",
+      "type": "window-blur",
+      "message": "Candidate moved focus away from the competition window.",
+      "createdAt": "2026-07-17T20:34:48.725Z"
+    },
     {
       "id": "B4V7XU",
       "roomId": "XMAJUL",

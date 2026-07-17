@@ -1,7 +1,8 @@
 import axios from "axios";
 import { io } from "socket.io-client";
 
-export const API_URL = import.meta.env.VITE_API_URL || "http://localhost:4000";
+// Default to 4001 when running the backend on an alternate port during local testing
+export const API_URL = import.meta.env.VITE_API_URL || "http://localhost:4001";
 
 export const api = axios.create({
   baseURL: `${API_URL}/api`
