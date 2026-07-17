@@ -7,6 +7,12 @@ export const api = axios.create({
   baseURL: `${API_URL}/api`
 });
 
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem("coderrooms.token");
+  if (token) config.headers.Authorization = `Bearer ${token}`;
+  return config;
+});
+
 export function makeSocket() {
-  return io(API_URL, { transports: ["websocket"] });
+  return io(API_URL, { transports: ["websocket"], auth: { token: localStorage.getItem("coderrooms.token") } });
 }

@@ -30,7 +30,8 @@ a {
 
 button,
 input,
-select {
+select,
+textarea {
   background: #111216;
   border: 1px solid var(--line);
   color: var(--text);
@@ -87,6 +88,26 @@ h3 {
 .name-input {
   height: 30px;
 }
+
+.profile-link { align-items: center; display: flex; gap: 5px; }
+.profile-link span { color: var(--green); font-weight: 900; }
+.auth-page { align-items: center; display: flex; justify-content: center; min-height: 100vh; padding: 24px; }
+.auth-panel { display: grid; gap: 12px; max-width: 480px; padding: 34px; width: 100%; }
+.auth-panel h1 { font-size: 36px; margin: 0 0 12px; }
+.auth-logo { color: var(--green); }
+.auth-panel input, .form-panel textarea { min-height: 46px; padding: 10px 14px; width: 100%; }
+.form-panel textarea { min-height: 100px; resize: vertical; }
+.form-error { color: var(--red); margin: 0; }
+.success-message { color: var(--green); margin: 0; }
+.verification-status { align-items: center; background: var(--panel-2); border-left: 3px solid var(--yellow); display: grid; gap: 6px; grid-template-columns: auto 1fr; padding: 14px; }
+.verification-status svg { color: var(--yellow); grid-row: span 2; }
+.verification-status span { color: var(--muted); font-size: 13px; }
+.verification-status.is-verified { border-left-color: var(--green); }
+.verification-status.is-verified svg { color: var(--green); }
+.aadhaar-demo { background: #101115; border: 1px solid var(--line); display: grid; gap: 10px; padding: 16px; }
+.aadhaar-demo p { color: var(--muted); font-size: 13px; line-height: 1.45; margin: 0; }
+.consent { align-items: flex-start; color: var(--text); display: flex; font-family: inherit; gap: 8px; letter-spacing: normal; text-transform: none; }
+.consent input { margin-top: 3px; }
 
 .name-input {
   max-width: 165px;
@@ -421,18 +442,142 @@ table {
 
 .problem-grid {
   display: grid;
+  gap: 14px;
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.problem-card {
-  min-height: 138px;
-  padding: 20px;
+.problem-library {
+  display: grid;
+  gap: 14px;
 }
 
-.problem-card > div {
+.library-toolbar {
+  align-items: center;
+  background: rgba(10, 11, 13, 0.72);
+  border: 1px solid var(--line);
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  padding: 14px 16px;
+}
+
+.search-box {
+  align-items: center;
+  background: #101115;
+  border: 1px solid var(--line);
+  display: flex;
+  flex: 1;
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 12px;
+}
+
+.search-box input {
+  background: transparent;
+  border: 0;
+  flex: 1;
+  min-height: 100%;
+  outline: none;
+}
+
+.filter-group {
+  display: flex;
+  gap: 10px;
+}
+
+.filter-group select {
+  min-height: 42px;
+  padding: 0 12px;
+}
+
+.problem-group {
+  border: 1px solid var(--line);
+  background: rgba(10, 11, 13, 0.72);
+}
+
+.group-toggle {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  color: var(--text);
+  display: flex;
+  font: inherit;
+  gap: 10px;
+  justify-content: flex-start;
+  padding: 14px 16px;
+  width: 100%;
+}
+
+.group-toggle span {
+  font-family: "JetBrains Mono", Consolas, monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.group-toggle em {
+  color: var(--muted);
+  font-style: normal;
+  margin-left: auto;
+}
+
+.problem-card {
+  min-height: 170px;
+  padding: 20px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.problem-card:hover {
+  border-color: rgba(19, 217, 150, 0.4);
+  transform: translateY(-1px);
+}
+
+.problem-card-head,
+.problem-card-footer {
   align-items: center;
   display: flex;
   justify-content: space-between;
+  gap: 10px;
+}
+
+.problem-card-footer {
+  margin-top: 14px;
+}
+
+.problem-topics {
+  color: var(--muted);
+  font-family: "JetBrains Mono", Consolas, monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.problem-status {
+  border-radius: 999px;
+  display: inline-flex;
+  font-family: "JetBrains Mono", Consolas, monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  margin-top: 10px;
+  padding: 4px 8px;
+  text-transform: uppercase;
+}
+
+.problem-status.submitted {
+  background: rgba(19, 217, 150, 0.16);
+  color: var(--green);
+  border: 1px solid rgba(19, 217, 150, 0.35);
+}
+
+.problem-status.attempted {
+  background: rgba(126, 135, 152, 0.16);
+  color: #b9bec8;
+  border: 1px solid rgba(126, 135, 152, 0.35);
+}
+
+.statement-meta {
+  align-items: center;
+  display: flex;
+  gap: 8px;
 }
 
 .difficulty,
@@ -584,6 +729,107 @@ pre {
   padding: 10px 16px;
 }
 
+.result-strip.success {
+  border-top-color: rgba(19, 217, 150, 0.45);
+  background: rgba(19, 217, 150, 0.08);
+}
+
+.result-strip.error {
+  border-top-color: rgba(255, 77, 87, 0.45);
+  background: rgba(255, 77, 87, 0.08);
+}
+
+.result-summary {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-right: 8px;
+}
+
+.result-summary span {
+  color: var(--muted);
+  font-family: "JetBrains Mono", Consolas, monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.problem-selector-panel {
+  display: grid;
+  gap: 10px;
+}
+
+.problem-selector-toolbar {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+}
+
+.problem-selector-toolbar select {
+  min-height: 42px;
+  padding: 0 12px;
+}
+
+.search-box.compact {
+  min-height: 42px;
+  padding: 0 10px;
+}
+
+.problem-selector { display: grid; gap: 8px; }
+.problem-selector label { align-items: center; background: #101115; border: 1px solid var(--line); color: var(--text); display: flex; font-family: inherit; gap: 10px; letter-spacing: normal; padding: 11px 13px; text-transform: none; }
+.problem-selector input { min-height: auto; width: auto; }
+.problem-selector span { align-items: center; display: flex; flex: 1; justify-content: space-between; }
+.problem-selector em { color: var(--muted); font-size: 12px; font-style: normal; text-transform: capitalize; }
+.room-card {
+  background: rgba(10, 11, 13, 0.72);
+  border: 1px solid var(--line);
+  margin-top: 18px;
+}
+
+.room-card-toggle {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  color: var(--text);
+  display: flex;
+  font: inherit;
+  justify-content: space-between;
+  padding: 16px 18px;
+  width: 100%;
+}
+
+.room-card-toggle span {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.room-card-body {
+  border-top: 1px solid var(--line);
+  padding: 18px;
+}
+
+.room-card-body .form-panel { padding: 0; }
+
+.room-card-body table {
+  margin-bottom: 16px;
+}
+
+.room-card-body .leaderboard {
+  margin-top: 0;
+}
+
+.proctor-panel { background: #101115; border-top: 1px solid var(--line); display: grid; gap: 10px; padding: 14px 16px; }
+.proctor-panel > div { align-items: center; display: flex; justify-content: space-between; }
+.proctor-panel h3, .proctor-alerts h3 { margin: 0; }
+.proctor-panel p { color: var(--muted); font-size: 13px; margin: 0; }
+.proctor-panel button { justify-self: start; }
+.proctor-video { background: #050505; border: 1px solid var(--line); max-height: 160px; max-width: 260px; width: 100%; }
+.proctor-video.hidden { display: none; }
+.proctor-alerts { margin-top: 28px; }
+.proctor-alert { align-items: center; background: #1a1113; border-left: 3px solid var(--red); display: grid; gap: 5px; grid-template-columns: 150px 1fr auto; margin-top: 8px; padding: 12px 14px; }
+.proctor-alert span, .proctor-alert em { color: var(--muted); font-size: 13px; font-style: normal; }
+
 .room-page {
   margin: 0 auto;
   max-width: 1620px;
@@ -655,6 +901,11 @@ pre {
   text-align: left;
 }
 
+.student-select { background: transparent; border: 0; display: block; min-height: 0; padding: 0; text-align: left; width: 100%; }
+.student-select strong, .student-select em { display: block; }
+.student-select .dot { margin-bottom: 9px; }
+.kick-button { align-items: center; border-color: #553036; color: var(--red); display: inline-flex; font-size: 11px; gap: 5px; margin-top: 12px; min-height: 28px; padding: 0 8px; text-transform: uppercase; }
+
 .student-card em {
   color: var(--yellow);
   display: block;
@@ -701,6 +952,8 @@ td {
   .room-meta {
     display: block;
   }
+
+  .proctor-alert { grid-template-columns: 1fr; }
 
   .topbar {
     height: auto;

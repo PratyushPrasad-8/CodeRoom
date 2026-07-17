@@ -1,15 +1,320 @@
 {
-  "rooms": [
+  "users": [
     {
-      "id": "MRWPEL",
-      "name": "Show your skills",
-      "problemId": "sum-two-numbers",
-      "teacherName": "Pratyush Prasad",
-      "status": "live",
-      "students": [],
-      "createdAt": "2026-06-16T21:04:49.126Z"
+      "id": "mmj1fn8u4vk37ghj",
+      "name": "Pratyush Prasad",
+      "email": "pratyushprasad108@gmail.com",
+      "passwordHash": "e26cc627f3448617b71de6d2d5d662fa:c4dc6185be6518a045fd1ce6d562d18eb5edf9aea2e5bf83926a57b5f6cf63965e8653f98a192765c48a2fdb80567ea2822ab514064dbe8088c5b46fb4818777",
+      "bio": "Coder",
+      "verified": true,
+      "createdAt": "2026-07-17T06:58:47.974Z",
+      "verifiedAt": "2026-07-17T07:27:26.964Z",
+      "verificationMethod": "aadhar-demo"
+    },
+    {
+      "id": "j1pb6w4ie18x5erh",
+      "name": "Aayu",
+      "email": "aayushreeprasad55@gmail.com",
+      "passwordHash": "77a8a9196d3a25c6d8964713c5ec8f86:1ea0ac92992c604be8172b7164198f9f3f96c18eb5c5e4641386d6ae8ddf6154f1d9cf4ed9a38d6a9cf4979cf6fa717f12e8116aadb9da70828a904001553332",
+      "bio": "",
+      "verified": false,
+      "createdAt": "2026-07-17T07:08:31.281Z"
     }
   ],
-  "submissions": [],
-  "codeSnapshots": {}
+  "rooms": [
+    {
+      "id": "6EDQAY",
+      "name": "Show your skills",
+      "problemId": "sum-two-numbers",
+      "problemIds": [
+        "sum-two-numbers",
+        "minimum-coin-change"
+      ],
+      "teacherName": "Pratyush Prasad",
+      "teacherId": "mmj1fn8u4vk37ghj",
+      "status": "live",
+      "durationMinutes": 120,
+      "expiresAt": "2026-07-17T21:48:13.320Z",
+      "students": [
+        {
+          "id": "BA4H3E",
+          "userId": "j1pb6w4ie18x5erh",
+          "name": "Aayu",
+          "status": "joined",
+          "passed": 0,
+          "total": 4,
+          "lastSeen": "2026-07-17T19:48:34.076Z"
+        }
+      ],
+      "createdAt": "2026-07-17T19:35:52.822Z"
+    },
+    {
+      "id": "XMAJUL",
+      "name": "Work and Shine",
+      "problemId": "sum-two-numbers",
+      "teacherName": "Pratyush Prasad",
+      "teacherId": "mmj1fn8u4vk37ghj",
+      "status": "live",
+      "durationMinutes": 60,
+      "expiresAt": "2026-07-17T08:39:50.886Z",
+      "students": [],
+      "createdAt": "2026-07-17T07:07:24.893Z",
+      "problemIds": [
+        "sum-two-numbers"
+      ],
+      "kickedStudents": [
+        "Aayu"
+      ],
+      "kickedStudentIds": []
+    }
+  ],
+  "submissions": [
+    {
+      "id": "PJKKWC",
+      "roomId": null,
+      "problemId": "sum-two-numbers",
+      "studentName": "Pratyush Prasad",
+      "language": "java",
+      "code": "import java.util.*;\n\npublic class Main {\n  public static void main(String[] args) {\n    Scanner sc = new Scanner(System.in);\n    int a= sc.nextInt();\n    int b= sc.nextInt();\n\n    System.out.println(a+b);\n  }\n}\n",
+      "passed": 4,
+      "total": 4,
+      "status": "accepted",
+      "createdAt": "2026-07-17T19:35:08.636Z",
+      "result": {
+        "tests": [
+          {
+            "input": "3 5",
+            "expected": "8",
+            "actual": "8",
+            "passed": true,
+            "stderr": "",
+            "timedOut": false,
+            "durationMs": 1530,
+            "visible": true
+          },
+          {
+            "input": "10 20",
+            "expected": "30",
+            "actual": "30",
+            "passed": true,
+            "stderr": "",
+            "timedOut": false,
+            "durationMs": 1601,
+            "visible": true
+          },
+          {
+            "input": "-4 9",
+            "expected": "5",
+            "actual": "5",
+            "passed": true,
+            "stderr": "",
+            "timedOut": false,
+            "durationMs": 1501,
+            "visible": false
+          },
+          {
+            "input": "1000000000 1000000000",
+            "expected": "2000000000",
+            "actual": "2000000000",
+            "passed": true,
+            "stderr": "",
+            "timedOut": false,
+            "durationMs": 1526,
+            "visible": false
+          }
+        ],
+        "passed": 4,
+        "total": 4
+      }
+    },
+    {
+      "id": "6PL2D4",
+      "roomId": null,
+      "problemId": "sum-two-numbers",
+      "studentName": "Pratyush Prasad",
+      "language": "java",
+      "code": "import java.util.*;\n\npublic class Main {\n  public static void main(String[] args) {\n    Scanner sc = new Scanner(System.in);\n    int a = sc.nextInt();\n    int b = sc.nextInt();\n\n    System.out.println(a+b);\n  }\n}\n",
+      "passed": 4,
+      "total": 4,
+      "status": "accepted",
+      "createdAt": "2026-07-17T10:06:40.039Z",
+      "result": {
+        "tests": [
+          {
+            "input": "3 5",
+            "expected": "8",
+            "actual": "8",
+            "passed": true,
+            "stderr": "",
+            "timedOut": false,
+            "durationMs": 668,
+            "visible": true
+          },
+          {
+            "input": "10 20",
+            "expected": "30",
+            "actual": "30",
+            "passed": true,
+            "stderr": "",
+            "timedOut": false,
+            "durationMs": 660,
+            "visible": true
+          },
+          {
+            "input": "-4 9",
+            "expected": "5",
+            "actual": "5",
+            "passed": true,
+            "stderr": "",
+            "timedOut": false,
+            "durationMs": 651,
+            "visible": false
+          },
+          {
+            "input": "1000000000 1000000000",
+            "expected": "2000000000",
+            "actual": "2000000000",
+            "passed": true,
+            "stderr": "",
+            "timedOut": false,
+            "durationMs": 660,
+            "visible": false
+          }
+        ],
+        "passed": 4,
+        "total": 4
+      }
+    }
+  ],
+  "codeSnapshots": {
+    "XMAJUL:Aayu": {
+      "roomId": "XMAJUL",
+      "studentName": "Aayu",
+      "language": "python",
+      "code": "# Read input and print output\n",
+      "updatedAt": "2026-07-17T08:06:42.305Z"
+    }
+  },
+  "proctorAlerts": [
+    {
+      "id": "B4V7XU",
+      "roomId": "XMAJUL",
+      "studentName": "Aayu",
+      "type": "tab-hidden",
+      "message": "Candidate moved away from the competition tab.",
+      "createdAt": "2026-07-17T08:06:19.135Z"
+    },
+    {
+      "id": "2X3JTY",
+      "roomId": "XMAJUL",
+      "studentName": "Aayu",
+      "type": "window-blur",
+      "message": "Candidate moved focus away from the competition window.",
+      "createdAt": "2026-07-17T08:06:17.134Z"
+    },
+    {
+      "id": "7VJQK6",
+      "roomId": "XMAJUL",
+      "studentName": "Aayu",
+      "type": "tab-hidden",
+      "message": "Candidate moved away from the competition tab.",
+      "createdAt": "2026-07-17T08:06:13.776Z"
+    },
+    {
+      "id": "CGEUK6",
+      "roomId": "XMAJUL",
+      "studentName": "Aayu",
+      "type": "window-blur",
+      "message": "Candidate moved focus away from the competition window.",
+      "createdAt": "2026-07-17T08:06:13.770Z"
+    },
+    {
+      "id": "P3SVQW",
+      "roomId": "XMAJUL",
+      "studentName": "Aayu",
+      "type": "tab-hidden",
+      "message": "Candidate moved away from the competition tab.",
+      "createdAt": "2026-07-17T08:05:51.996Z"
+    },
+    {
+      "id": "SG2WSU",
+      "roomId": "XMAJUL",
+      "studentName": "Aayu",
+      "type": "window-blur",
+      "message": "Candidate moved focus away from the competition window.",
+      "createdAt": "2026-07-17T08:05:51.973Z"
+    },
+    {
+      "id": "ME7J2D",
+      "roomId": "XMAJUL",
+      "studentName": "Aayu",
+      "type": "proctoring-stopped",
+      "message": "Candidate manually stopped camera and microphone proctoring.",
+      "createdAt": "2026-07-17T07:23:13.840Z"
+    },
+    {
+      "id": "HFFPTU",
+      "roomId": "XMAJUL",
+      "studentName": "Aayu",
+      "type": "tab-hidden",
+      "message": "Candidate moved away from the competition tab.",
+      "createdAt": "2026-07-17T07:22:34.365Z"
+    },
+    {
+      "id": "LSWM6J",
+      "roomId": "XMAJUL",
+      "studentName": "Aayu",
+      "type": "window-blur",
+      "message": "Candidate moved focus away from the competition window.",
+      "createdAt": "2026-07-17T07:22:34.365Z"
+    },
+    {
+      "id": "MBDZ9C",
+      "roomId": "XMAJUL",
+      "studentName": "Aayu",
+      "type": "tab-hidden",
+      "message": "Candidate moved away from the competition tab.",
+      "createdAt": "2026-07-17T07:22:30.459Z"
+    },
+    {
+      "id": "X7DAHZ",
+      "roomId": "XMAJUL",
+      "studentName": "Aayu",
+      "type": "window-blur",
+      "message": "Candidate moved focus away from the competition window.",
+      "createdAt": "2026-07-17T07:22:29.399Z"
+    },
+    {
+      "id": "3AXB5E",
+      "roomId": "XMAJUL",
+      "studentName": "Aayu",
+      "type": "tab-hidden",
+      "message": "Candidate moved away from the competition tab.",
+      "createdAt": "2026-07-17T07:22:27.488Z"
+    },
+    {
+      "id": "T2AXN7",
+      "roomId": "XMAJUL",
+      "studentName": "Aayu",
+      "type": "window-blur",
+      "message": "Candidate moved focus away from the competition window.",
+      "createdAt": "2026-07-17T07:22:27.487Z"
+    },
+    {
+      "id": "2SHJ3K",
+      "roomId": "XMAJUL",
+      "studentName": "Aayu",
+      "type": "tab-hidden",
+      "message": "Candidate moved away from the competition tab.",
+      "createdAt": "2026-07-17T07:22:03.691Z"
+    },
+    {
+      "id": "J5B4ZW",
+      "roomId": "XMAJUL",
+      "studentName": "Aayu",
+      "type": "window-blur",
+      "message": "Candidate moved focus away from the competition window.",
+      "createdAt": "2026-07-17T07:22:03.691Z"
+    }
+  ]
 }
